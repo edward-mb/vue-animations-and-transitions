@@ -16,7 +16,7 @@
         </button>
         <br />
         <br />
-        <transition>
+        <transition name="fade">
           <div class="notification is-info" v-if="show">This is some info</div>
         </transition>
       </div>
@@ -42,5 +42,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.fade.enter {
+}
+.fade-enter-active {
+}
+.fade-leave {
+}
+.fade-leave-active {
 }
 </style>
