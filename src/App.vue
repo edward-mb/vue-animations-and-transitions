@@ -1,17 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="columns is-mobile is-multiline is-centered">
+      <div class="column is-two-thirds has-text-centered">
+        <img
+          class="image is-128x128 is-inline-block"
+          alt="Vue logo"
+          src="./assets/logo.png"
+        />
+      </div>
+      <div class="column is-two-thirds">
+        <h1 class="is-size-1">Animations</h1>
+        <hr />
+        <button class="button is-primary" @click="show = !show">
+          Show Alert
+        </button>
+        <br />
+        <br />
+        <transition>
+          <div class="notification is-info" v-if="show">This is some info</div>
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      show: false
+    }
   }
 }
 </script>
