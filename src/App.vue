@@ -17,7 +17,9 @@
         <br />
         <br />
         <transition name="fade">
-          <div class="notification is-info" v-if="show">This is some info</div>
+          <div class="notification is-info" v-show="show">
+            This is some info
+          </div>
         </transition>
         <transition name="slide" type="animation">
           <div class="notification is-info" v-if="show">This is some info</div>
