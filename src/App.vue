@@ -3,13 +3,13 @@
     <div class="columns is-mobile is-multiline is-centered">
       <div class="column is-two-thirds has-text-centered">
         <img
-          class="image is-128x128 is-inline-block"
+          class="image is-64x64 is-inline-block"
           alt="Vue logo"
           src="./assets/logo.png"
         />
       </div>
       <div class="column is-two-thirds">
-        <h1 class="is-size-1">Animations</h1>
+        <h1 class="is-size-2">Animations</h1>
         <hr />
         <div class="field">
           <div class="control">
@@ -41,6 +41,14 @@
           leave-active-class="animated shake"
         >
           <div class="notification is-info" v-if="show">This is some info</div>
+        </transition>
+        <transition :name="alertAnimation" mode="out-in">
+          <div class="notification is-info" v-if="show" key="info">
+            This is some Info
+          </div>
+          <div class="notification is-warning" v-else key="warning">
+            This is some Warning
+          </div>
         </transition>
       </div>
     </div>
@@ -92,7 +100,7 @@ export default {
 }
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
-  transition: opacity 3s;
+  transition: opacity 1s;
   opacity: 0;
 }
 
