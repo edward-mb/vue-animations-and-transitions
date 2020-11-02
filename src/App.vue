@@ -24,7 +24,11 @@
         <transition name="slide" type="animation">
           <div class="notification is-info" v-if="show">This is some info</div>
         </transition>
-        <transition name="fade" appear>
+        <transition
+          appear
+          enter-active-class="animated bounce"
+          leave-active-class="animated shake"
+        >
           <div class="notification is-info" v-if="show">This is some info</div>
         </transition>
       </div>
