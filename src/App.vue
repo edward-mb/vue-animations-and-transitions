@@ -11,14 +11,25 @@
       <div class="column is-two-thirds">
         <h1 class="is-size-1">Animations</h1>
         <hr />
+        <div class="field">
+          <div class="control">
+            <div class="select is-primary is-medium">
+              <select v-model="alertAnimation">
+                <option value="fade">Fade</option>
+                <option value="slide">Slide</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br />
         <button class="button is-primary" @click="show = !show">
           Show Alert
         </button>
         <br />
         <br />
-        <transition name="fade">
+        <transition :name="alertAnimation">
           <div class="notification is-info" v-show="show">
-            This is some info
+            This is some <info></info>
           </div>
         </transition>
         <transition name="slide" type="animation">
@@ -40,7 +51,8 @@
 export default {
   data () {
     return {
-      show: true
+      show: true,
+      alertAnimation: 'fade'
     }
   }
 }
