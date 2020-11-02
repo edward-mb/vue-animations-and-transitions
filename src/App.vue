@@ -29,7 +29,7 @@
         <br />
         <transition :name="alertAnimation">
           <div class="notification is-info" v-show="show">
-            This is some <info></info>
+            This is some info
           </div>
         </transition>
         <transition name="slide" type="animation">
@@ -50,6 +50,27 @@
             This is some Warning
           </div>
         </transition>
+        <hr />
+        <button class="button is-primary" @click="load = !load">
+          Load / Remove Element
+        </button>
+        <br />
+        <br />
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <div
+            style="width: 100px; height: 100px; background-color: lightgreen"
+            v-if="load"
+          ></div>
+        </transition>
       </div>
     </div>
   </div>
@@ -59,8 +80,37 @@
 export default {
   data () {
     return {
-      show: true,
+      show: false,
+      load: true,
       alertAnimation: 'fade'
+    }
+  },
+  methods: {
+    beforeEnter () {
+      console.log('beforeEnter')
+    },
+    enter (el, done) {
+      console.log('enter')
+      done()
+    },
+    afterEnter () {
+      console.log('afterEnter')
+    },
+    enterCancelled () {
+      console.log('enterCancelled')
+    },
+    beforeLeave () {
+      console.log('beforeLeave')
+    },
+    leave (el, done) {
+      console.log('leave')
+      done()
+    },
+    afterLeave () {
+      console.log('afterLeave')
+    },
+    leaveCancelled () {
+      console.log('leaveCancelled')
     }
   }
 }
